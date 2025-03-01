@@ -10,6 +10,14 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
+        .carousel-inner .row {
+            display: flex;
+        }
+        .rounded-circle {
+            border-radius: 30%;
+        }
+
+
     </style>
 </head>
 <body>
@@ -42,40 +50,123 @@
     </div>
 </section>
 
-
 <div class="container my-5">
     <h2 class="text-center mb-4">Our Best Products</h2>
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card h-100">
-                <img src="images/vege.webp" class="card-img-top" alt="Vegetables">
-                <div class="card-body d-flex flex-column text-center">
-                    <h5 class="card-title">Fresh Vegetables</h5>
-                    <p class="card-text flex-grow-1">Fresh and organic vegetables directly from farms.</p>
-                    <a href="#" class="btn btn-success">Shop Now</a>
+    
+    <div id="groceryCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="images/vege.jpg" class="card-img-top" alt="Vegetables">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Fresh Vegetables</h5>
+                                <p class="card-text">Fresh and organic vegetables directly from farms.</p>
+                                <a href="#" class="btn btn-success">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="images/fruits.jpg" class="card-img-top" alt="Fruits">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Juicy Fruits</h5>
+                                <p class="card-text">Best quality fruits at affordable prices.</p>
+                                <a href="#" class="btn btn-success">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="images/dairy.jpg" class="card-img-top" alt="Dairy">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Dairy Products</h5>
+                                <p class="card-text">Pure and fresh dairy products.</p>
+                                <a href="#" class="btn btn-success">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100">
-                <img src="images/fruits.webp" class="card-img-top" alt="Fruits">
-                <div class="card-body d-flex flex-column text-center">
-                    <h5 class="card-title">Juicy Fruits</h5>
-                    <p class="card-text flex-grow-1">Best quality fruits at affordable prices.</p>
-                    <a href="#" class="btn btn-success">Shop Now</a>
+
+            <div class="carousel-item">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="images/grains.webp" class="card-img-top" alt="Grains">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Organic Grains</h5>
+                                <p class="card-text">High-quality grains for a healthy diet.</p>
+                                <a href="#" class="btn btn-success">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="images/bakery.jpg" class="card-img-top" alt="Bakery">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Bakery Items</h5>
+                                <p class="card-text">Freshly baked breads and cakes.</p>
+                                <a href="#" class="btn btn-success">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="images/beverage.jpg" class="card-img-top" alt="Beverages">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Beverages</h5>
+                                <p class="card-text">Refreshing drinks and juices.</p>
+                                <a href="#" class="btn btn-success">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card h-100">
-                <img src="images/dairy.webp" class="card-img-top" alt="Dairy">
-                <div class="card-body d-flex flex-column text-center">
-                    <h5 class="card-title">Dairy Products</h5>
-                    <p class="card-text flex-grow-1">Pure and fresh dairy products.</p>
-                    <a href="#" class="btn btn-success">Shop Now</a>
+
+            <div class="carousel-item">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="images/snack.jpeg" class="card-img-top" alt="Snacks">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Tasty Snacks</h5>
+                                <p class="card-text">Delicious and crispy snacks for all occasions.</p>
+                                <a href="#" class="btn btn-success">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="images/spice.webp" class="card-img-top" alt="Spices">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Organic Spices</h5>
+                                <p class="card-text">Aromatic and natural spices for every dish.</p>
+                                <a href="#" class="btn btn-success">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100">
+                            <img src="images/frozen.jpg" class="card-img-top" alt="Frozen Foods">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Frozen Foods</h5>
+                                <p class="card-text">Quick and easy frozen meals for busy days.</p>
+                                <a href="#" class="btn btn-success">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#groceryCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#groceryCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
     </div>
 </div>
 
