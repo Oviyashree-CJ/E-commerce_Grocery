@@ -1,6 +1,6 @@
-# Foodify - Grocery Store
+# Farmazy - Grocery Store
 
-Foodify is a responsive grocery store website built using HTML, Bootstrap, and Google Fonts. It offers an elegant and user-friendly interface for browsing and purchasing fresh groceries online.
+Farmazy is a responsive grocery store website built using HTML, Bootstrap, and Google Fonts. It offers an elegant and user-friendly interface for browsing and purchasing fresh groceries online.
 
 ## Features
 - **Responsive Design**: Fully optimized for mobile and desktop users.
