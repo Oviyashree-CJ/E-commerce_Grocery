@@ -3,33 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foodify - Grocery Store</title>
+    <title>Farmazy - Grocery Store</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/logotitle.png" type="image/x-icon">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
         }
-
+        :root {
+          --my-light-green: #90ee90; /* Example light green color */
+        }
+        .bg-light-green {
+            background-color: var(--my-light-green);
+        }
+        .image-fluid {
+            filter: invert(100%);
+        }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg bg-success navbar-dark ">
+<nav class="navbar navbar-expand-lg bg-light-green navbar-dark ">
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center " href="#">
-            <img src="images/logo.png" alt="Foodify Logo" class="rounded-40 me-2" width="80" height="80">
-            <span class="fw-bold">Foodify</span>
+            <img src="images/logo.png" alt="Foodify Logo" class="rounded-40 me-2" width="100" height="100">
+            <span class="fw-bold text-dark">Farmazy</span>
         </a>
         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link text-white" href="index.html"><img src="images/home.png" alt="Home" width="25px" height="20px" class="rounded-circle">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#products"><img src="images/products.png" alt="Products" width="20px" height="20px" class="rounded-circle">Products</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#"><img src="images/about.png" alt="About Us" width="20px" height="20px" class="rounded-circle">About Us</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#"><img src="images/contact.png" alt="Contact" width="25px" height="20px" class="rounded-circle">Contact</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="index.html"><img src="images/home.png" alt="Home" width="25px" height="20px" class="rounded-circle image-fluid">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#products"><img src="images/products.png" alt="Products" width="20px" height="20px" class="rounded-circle image-fluid">Products</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#"><img src="images/about.png" alt="About Us" width="20px" height="20px" class="rounded-circle image-fluid">About Us</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#"><img src="images/contact.png" alt="Contact" width="25px" height="20px" class="rounded-circle image-fluid">Contact</a></li>
             </ul>
         </div>
         <a href="login.html" class="btn btn-lg btn-success text-light">Login</a>
@@ -164,8 +173,26 @@
     </div>
 </div>
 
-<footer class="bg-success text-white text-center py-3">
-    <p class="mb-0">&copy; 2025 Foodify | All Rights Reserved</p>
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">About Us</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="images/logo.png" alt="About Foodify" class="img-fluid rounded-4 shadow-lg">
+            </div>
+            <div class="col-md-6">
+                <p class="lead">Welcome to <strong>Farmazy</strong>, your one-stop destination for fresh and high-quality groceries delivered straight to your doorstep. We are committed to providing organic, fresh, and affordable grocery items to make your shopping experience seamless and enjoyable.</p>
+                <p>At Farmazy, we prioritize sustainability, working with local farmers and trusted suppliers to bring you the best products. Whether you're looking for farm-fresh vegetables, organic fruits, premium dairy products, or everyday essentials, we have got you covered.</p>
+                <p class="mb-4">Our mission is to simplify grocery shopping, ensuring that you receive fresh products quickly and conveniently. With easy navigation, secure payments, and timely delivery, Farmazy makes grocery shopping hassle-free.</p>
+                <a href="#products" class="btn btn-success">Explore Our Products</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="bg-light-green text-dark text-center py-3">
+    <p class="mb-0">&copy; 2025 Farmazy | All Rights Reserved</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
