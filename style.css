@@ -1,0 +1,12 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+:root {
+  --my-light-green: #90ee90; /* Example light green color */
+}
+.bg-light-green {
+    background-color: var(--my-light-green);
+}
+.image-fluid {
+    filter: invert(100%);
+}
