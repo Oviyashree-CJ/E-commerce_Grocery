@@ -30,6 +30,9 @@
             margin: 0 auto 20px;
             width: 150px;
         }
+        .form-group{
+            margin: 10px 0px;
+        }
     </style>
 </head>
 <body>
@@ -45,6 +48,12 @@
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" class="form-control" placeholder="Enter username" required />
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+            <label for="phone">Email</label>
+            <input type="tel" id="phone" class="form-control" placeholder="Enter phone number" required />
         </div>
 
         <!-- Email -->
@@ -71,8 +80,11 @@
         // Get form values
         const username = document.getElementById('username').value.trim();
         const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
         const password = document.getElementById('password').value.trim();
         const errorMessage = document.getElementById('errorMessage');
+
+        let mob = "";
 
         // Validate username (allow full characters and special characters)
         if (!/^[a-zA-Z0-9@_.-]+$/.test(username)) {
@@ -81,8 +93,13 @@
         }
 
         // Validate email format
-        if (!/^\S+@\S+\.\S+$/.test(email)) {
+        if (!/^[a-zA-Z]+[a-zA-Z0-9]+@[a-z]+[.]+[a-z]{2,3}$/.test(email)) {
             errorMessage.textContent = "Invalid email address!";
+            return;
+        }
+
+        if(!/^[6-9]+[0-9]{9}$/.test(phone)){
+            errorMessage.textContent = "Phone number must have 10 numbers with start number between 6 and 9";
             return;
         }
 

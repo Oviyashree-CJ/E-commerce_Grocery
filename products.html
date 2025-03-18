@@ -4,239 +4,618 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farmazy - Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .navbar-nav .nav-link.active {
+            font-weight: bold;
+            color: green !important;
+        }
+        .product-card .card {
+            height: 100%; /* Ensures equal height for all cards */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card .card-img-top {
+            height: 250px; /* Fixed height for images */
+            object-fit: cover; /* Ensures images maintain aspect ratio and fill the space */
+        }
+
+        .product-card .card-body {
+            flex-grow: 1; /* Makes the card body expand to fill available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg bg-light-green navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-            <img src="images/logo.png" alt="Farmazy Logo" width="80" height="80" />
-            Farmazy
+<nav class="navbar navbar-expand-lg bg-light-green">
+    <div class="container-fluid d-flex align-items-center">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="images/logo.png" alt="Foodify Logo" class="rounded-40 me-2" width="80" height="80">
+            <span class="fw-bold text-dark">Farmazy</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#vegetables">Vegetables</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#fruits">Fruits</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#dairy">Dairy</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#grains">Grains</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#bakery">Bakery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#beverages">Beverages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#snacks">Snacks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#spices">Spices</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-dark" href="#frozen">Frozen Foods</a>
-                </li>
+                <li class="nav-item"><a class="nav-link text-dark" href="index.html">
+                    <img src="images/home.png" alt="Home" width="25px" height="20px" class="rounded-circle image-fluid">
+                    Home</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" onclick="showSection('all')">All</a></li>
+                <li class="nav-item"><a class="nav-link text-dark"  onclick="showSection('vegetables')">Vegetables</a></li>
+                <li class="nav-item"><a class="nav-link text-dark"  onclick="showSection('fruits')">Fruits</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" onclick="showSection('dairy')">Dairy</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#beverages">Beverages</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#snacks">Snacks</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="#frozen">Frozen Foods</a></li>
             </ul>
         </div>
     </div>
 </nav>
-
-<!-- Section Template -->
-<div class="container my-5">
-
-    <!-- Vegetables Section -->
-    <h2 class="text-center mb-4" id="vegetables">Fresh Vegetables</h2>
+<div class="container mt-5 hidden product-card" id="all">
     <div class="row g-4">
-        <!-- 4 items in a row -->
-        <div class="col-md-3">
-            <a href="product-details.html?id=1" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/carrot.jpeg" class="card-img-top" alt="Carrot" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Carrot</h5>
-                        <p class="card-text">Fresh organic carrots.</p>
-                        <p class="fw-bold">₹30 / kg</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
+        <!-- Fruits -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/fruits.jpg" class="card-img-top" alt="Apple">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Fruits</h5>
+                    <a onclick="showSection('fruits')" class="btn btn-lg btn-success">Shop Now</a>
                 </div>
-            </a>
+            </div>
         </div>
 
-        <div class="col-md-3">
-            <a href="product-details.html?id=2" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/brocolli.jpg" class="card-img-top" alt="Broccoli" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Broccoli</h5>
-                        <p class="card-text">Fresh green broccoli.</p>
-                        <p class="fw-bold">₹50 / kg</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
+        <!-- Vegetables -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/vege.jpg" class="card-img-top" alt="Carrot">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Vegetables</h5>
+                    <a onclick="showSection('vegetables')" class="btn btn-lg btn-success">Shop Now</a>
                 </div>
-            </a>
+            </div>
         </div>
 
-        <div class="col-md-3">
-            <a href="product-details.html?id=3" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/tomato.jpeg" class="card-img-top" alt="Tomato" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Tomato</h5>
-                        <p class="card-text">Farm-fresh tomatoes.</p>
-                        <p class="fw-bold">₹25 / kg</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
+        <!-- Dairy Products -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/dairy.jpg" class="card-img-top" alt="Milk">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Dairy Products</h5>
+                    <a onclick="showSection('dairy')" class="btn btn-lg btn-success">Shop Now</a>
                 </div>
-            </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mt-4">
+        <!-- Snacks -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/snack.jpeg" class="card-img-top" alt="Chips">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Snacks</h5>
+                    <a href="#" class="btn btn-lg btn-success">Shop Now</a>
+                </div>
+            </div>
         </div>
 
-        <div class="col-md-3">
-            <a href="product-details.html?id=4" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/capsicum.jpg" class="card-img-top" alt="Capsicum" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Capsicum</h5>
-                        <p class="card-text">Crunchy and fresh.</p>
-                        <p class="fw-bold">₹40 / kg</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
+        <!-- Beverages -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/beverage.jpg" class="card-img-top" alt="Beverage">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Beverages</h5>
+                    <a href="#" class="btn btn-lg btn-success">Shop Now</a>
                 </div>
-            </a>
+            </div>
         </div>
 
-        <!-- Second Row -->
-        <div class="col-md-3">
-            <a href="product-details.html?id=5" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/potato.jpeg" class="card-img-top" alt="Potato" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Potato</h5>
-                        <p class="card-text">Fresh farm potatoes.</p>
-                        <p class="fw-bold">₹20 / kg</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
+        <!-- Frozen Items -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="images/frozen.jpg" class="card-img-top" alt="Frozen">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Frozen Items</h5>
+                    <a href="#" class="btn btn-lg btn-success">Shop Now</a>
                 </div>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="product-details.html?id=6" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/onion.jpeg" class="card-img-top" alt="Onion" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Onion</h5>
-                        <p class="card-text">Pungent and flavorful onions.</p>
-                        <p class="fw-bold">₹30 / kg</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="product-details.html?id=7" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/cucumber.jpeg" class="card-img-top" alt="Cucumber" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Cucumber</h5>
-                        <p class="card-text">Cool and refreshing cucumbers.</p>
-                        <p class="fw-bold">₹15 / kg</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="product-details.html?id=8" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/lettuce.jpeg" class="card-img-top" alt="Lettuce" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Lettuce</h5>
-                        <p class="card-text">Crisp and green lettuce.</p>
-                        <p class="fw-bold">₹25 / piece</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- Third Row -->
-        <div class="col-md-3">
-            <a href="product-details.html?id=9" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/cauliflower.jpeg" class="card-img-top" alt="Cauliflower" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Cauliflower</h5>
-                        <p class="card-text">Soft and fresh cauliflower.</p>
-                        <p class="fw-bold">₹40 / piece</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="product-details.html?id=10" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/brinjal.jpeg" class="card-img-top" alt="Eggplant" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Brinjal</h5>
-                        <p class="card-text">Soft and fresh eggplants.</p>
-                        <p class="fw-bold">₹35 / kg</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="product-details.html?id=9" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/beans.jpeg" class="card-img-top" alt="Spinach" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Beans</h5>
-                        <p class="card-text">Fresh and crisp beans.</p>
-                        <p class="fw-bold">₹50 / kg</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="product-details.html?id=10" class="card-link text-decoration-none">
-                <div class="card">
-                    <img src="images/cabbage.jpeg" class="card-img-top" alt="Cabbage" />
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Cabbage</h5>
-                        <p class="card-text">Fresh green cabbage.</p>
-                        <p class="fw-bold">₹30 / piece</p>
-                        <a href="login.html" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </a>
+            </div>
         </div>
     </div>
 </div>
 
 
+<!-- Vegetables Section -->
+<div class="container my-5 hidden product-card" id="vegetables">
+    <h2 class="text-center mb-4" >Fresh Vegetables</h2>
+    <div class="row g-4">
+        <!-- First Row -->
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/carrot.jpeg" class="card-img-top" alt="Carrot" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Carrot</h5>
+                    <p class="card-text">Fresh organic carrots.</p>
+                    <p class="fw-bold">₹30 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/brocolli.jpg" class="card-img-top" alt="Broccoli" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Broccoli</h5>
+                    <p class="card-text">Fresh green broccoli.</p>
+                    <p class="fw-bold">₹50 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/tomato.jpeg" class="card-img-top" alt="Tomato" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Tomato</h5>
+                    <p class="card-text">Farm-fresh tomatoes.</p>
+                    <p class="fw-bold">₹25 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/capsicum.jpg" class="card-img-top" alt="Capsicum" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Capsicum</h5>
+                    <p class="card-text">Crunchy and fresh.</p>
+                    <p class="fw-bold">₹40 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Second Row -->
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/potato.jpeg" class="card-img-top" alt="Potato" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Potato</h5>
+                    <p class="card-text">Fresh farm potatoes.</p>
+                    <p class="fw-bold">₹20 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/onion.jpeg" class="card-img-top" alt="Onion" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Onion</h5>
+                    <p class="card-text">Pungent and flavorful onions.</p>
+                    <p class="fw-bold">₹30 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/cucumber.jpeg" class="card-img-top" alt="Cucumber" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Cucumber</h5>
+                    <p class="card-text">Cool and refreshing cucumbers.</p>
+                    <p class="fw-bold">₹15 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/lettuce.jpeg" class="card-img-top" alt="Lettuce" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Lettuce</h5>
+                    <p class="card-text">Crisp and green lettuce.</p>
+                    <p class="fw-bold">₹25 / piece</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Third Row -->
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/cauliflower.jpeg" class="card-img-top" alt="Cauliflower" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Cauliflower</h5>
+                    <p class="card-text">Soft and fresh cauliflower.</p>
+                    <p class="fw-bold">₹40 / piece</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/brinjal.jpeg" class="card-img-top" alt="Brinjal" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Brinjal</h5>
+                    <p class="card-text">Soft and fresh eggplants.</p>
+                    <p class="fw-bold">₹35 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/beans.jpeg" class="card-img-top" alt="Beans" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Beans</h5>
+                    <p class="card-text">Fresh green beans.</p>
+                    <p class="fw-bold">₹45 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/cabbage.jpeg" class="card-img-top" alt="Cabbage" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Cabbage</h5>
+                    <p class="card-text">Fresh green cabbage.</p>
+                    <p class="fw-bold">₹30 / piece</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- Fruits Section -->
+<div class="container my-5 hidden product-card" id="fruits">
+    <h2 class="text-center mb-4">Juicy Fruits</h2>
+    <div class="row g-4">
+        <!-- First Row -->
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/mango.jpg" class="card-img-top" alt="Mango" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Mango</h5>
+                    <p class="card-text">Sweet and juicy mangoes from Salem.</p>
+                    <p class="fw-bold">₹120 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/banana.jpg" class="card-img-top" alt="Banana" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Banana</h5>
+                    <p class="card-text">Fresh Nendran bananas from Kanyakumari.</p>
+                    <p class="fw-bold">₹50 / dozen</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/jack.jpg" class="card-img-top" alt="Jackfruit" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Jackfruit</h5>
+                    <p class="card-text">Sweet and aromatic jackfruits from Panaikulam.</p>
+                    <p class="fw-bold">₹100 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/pineapple.jpg" class="card-img-top" alt="Pineapple" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Pineapple</h5>
+                    <p class="card-text">Sweet and tangy pineapples from Pollachi.</p>
+                    <p class="fw-bold">₹80 / piece</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/guava.jpg" class="card-img-top" alt="Guava" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Guava</h5>
+                    <p class="card-text">Fresh guavas from Madurai.</p>
+                    <p class="fw-bold">₹40 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/papaya.jpg" class="card-img-top" alt="Papaya" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Papaya</h5>
+                    <p class="card-text">Ripe and healthy papayas from Coimbatore.</p>
+                    <p class="fw-bold">₹45 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/grapes.jpg" class="card-img-top" alt="Black Grapes" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Black Grapes</h5>
+                    <p class="card-text">Juicy black grapes from Theni.</p>
+                    <p class="fw-bold">₹90 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/custard.jpeg" class="card-img-top" alt="Custard Apple" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Custard Apple</h5>
+                    <p class="card-text">Sweet custard apples from Vellore.</p>
+                    <p class="fw-bold">₹70 / piece</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third Row -->
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/watermelon.jpg" class="card-img-top" alt="Watermelon" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Watermelon</h5>
+                    <p class="card-text">Juicy and refreshing watermelons from Erode.</p>
+                    <p class="fw-bold">₹40 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/fig.jpeg" class="card-img-top" alt="Fig" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Fig</h5>
+                    <p class="card-text">Fresh figs from Krishnagiri.</p>
+                    <p class="fw-bold">₹150 / box</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/pomegranate.jpg" class="card-img-top" alt="Pomegranate" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Pomegranate</h5>
+                    <p class="card-text">Rich and juicy pomegranates from Dindigul.</p>
+                    <p class="fw-bold">₹180 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/sapota.jpg" class="card-img-top" alt="Sapota" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Sapota (Chikoo)</h5>
+                    <p class="card-text">Sweet and smooth sapota from Tamil Nadu.</p>
+                    <p class="fw-bold">₹60 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dairy Products -->
+<div class="container my-5 hidden product-card" id="dairy">
+    <h2 class="text-center mb-4">Dairy Products</h2>
+    <div class="row g-4">
+        <!-- First Row -->
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/mango.jpg" class="card-img-top" alt="Mango" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Mango</h5>
+                    <p class="card-text">Sweet and juicy mangoes from Salem.</p>
+                    <p class="fw-bold">₹120 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/banana.jpg" class="card-img-top" alt="Banana" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Banana</h5>
+                    <p class="card-text">Fresh Nendran bananas from Kanyakumari.</p>
+                    <p class="fw-bold">₹50 / dozen</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/jack.jpg" class="card-img-top" alt="Jackfruit" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Jackfruit</h5>
+                    <p class="card-text">Sweet and aromatic jackfruits from Panaikulam.</p>
+                    <p class="fw-bold">₹100 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/pineapple.jpg" class="card-img-top" alt="Pineapple" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Pineapple</h5>
+                    <p class="card-text">Sweet and tangy pineapples from Pollachi.</p>
+                    <p class="fw-bold">₹80 / piece</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/guava.jpg" class="card-img-top" alt="Guava" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Guava</h5>
+                    <p class="card-text">Fresh guavas from Madurai.</p>
+                    <p class="fw-bold">₹40 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/papaya.jpg" class="card-img-top" alt="Papaya" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Papaya</h5>
+                    <p class="card-text">Ripe and healthy papayas from Coimbatore.</p>
+                    <p class="fw-bold">₹45 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/grapes.jpg" class="card-img-top" alt="Black Grapes" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Black Grapes</h5>
+                    <p class="card-text">Juicy black grapes from Theni.</p>
+                    <p class="fw-bold">₹90 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/custard.jpeg" class="card-img-top" alt="Custard Apple" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Custard Apple</h5>
+                    <p class="card-text">Sweet custard apples from Vellore.</p>
+                    <p class="fw-bold">₹70 / piece</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third Row -->
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/watermelon.jpg" class="card-img-top" alt="Watermelon" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Watermelon</h5>
+                    <p class="card-text">Juicy and refreshing watermelons from Erode.</p>
+                    <p class="fw-bold">₹40 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/fig.jpeg" class="card-img-top" alt="Fig" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Fig</h5>
+                    <p class="card-text">Fresh figs from Krishnagiri.</p>
+                    <p class="fw-bold">₹150 / box</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/pomegranate.jpg" class="card-img-top" alt="Pomegranate" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Pomegranate</h5>
+                    <p class="card-text">Rich and juicy pomegranates from Dindigul.</p>
+                    <p class="fw-bold">₹180 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card">
+                <img src="images/sapota.jpg" class="card-img-top" alt="Sapota" />
+                <div class="card-body text-center">
+                    <h5 class="card-title">Sapota (Chikoo)</h5>
+                    <p class="card-text">Sweet and smooth sapota from Tamil Nadu.</p>
+                    <p class="fw-bold">₹60 / kg</p>
+                    <a href="login.html" class="btn btn-lg btn-success">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Footer -->
-<footer class="bg-light-green text-dark text-center py-3">
+<footer class="bg-light-green text-dark text-center py-3 mt-5">
     <p class="mb-0">&copy; 2025 Farmazy | All Rights Reserved</p>
 </footer>
+
+<!-- JavaScript to handle category filtering -->
+<script>
+     window.onload = function() {
+        document.getElementById("all").classList.remove("hidden");
+    };
+    function showSection(section) {
+        // Hide all sections
+        document.querySelectorAll('.product-card').forEach(el => {
+            el.classList.add('hidden');
+        });
+
+        // Show the selected section
+        document.getElementById(section).classList.remove('hidden');
+    }
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
