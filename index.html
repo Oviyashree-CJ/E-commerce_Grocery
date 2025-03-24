@@ -14,7 +14,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg bg-light-green navbar-dark">
-        <div class="container-fluid d-flex align-items-center">
+        <div class="container d-flex align-items-center">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img src="images/logo.png" alt="Foodify Logo" class="rounded-40 me-2" width="80" height="80">
                 <span class="fw-bold text-dark">Farmazy</span>
@@ -57,11 +57,18 @@
                             Contact
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="cart.html" id="cart">
+                            <img src="images/cart.png" alt="Cart" width="30px" height="30px" class="rounded-circle">Cart <span id="cart-count" class="badge badge-pill badge-danger text-dark">0</span>
+                        </a>
+                    </li>
+
+                    <!-- Login Button -->
+                    <li id="authButton" class="nav-item" type="none" style="margin-left: 20px;"></li>
+                    
                 </ul>
             </div>
-    
-            <!-- Login Button -->
-            <a href="login.html" id="authButton" class="btn btn-success text-light ms-3" onclick="handleAuth()">Login</a>
         </div>
     </nav>
     
@@ -160,41 +167,17 @@
     </div>
 </div>
 
-<footer class="bg-light-green text-dark text-center py-3">
-    <p class="mb-0">&copy; 2025 Farmazy | All Rights Reserved</p>
+<footer class="bg-light-green text-dark text-center py-3 mt-5">
+    <p class="mb-0">
+        &copy; 2025 Farmazy | 
+        <a href="faq.html" class="text-dark text-decoration-none">FAQ</a> | 
+        <a href="contact.html" class="text-dark text-decoration-none">Contact Us</a>
+    </p>
 </footer>
 
-<script>
-    // Update button state on page load
-    document.addEventListener('DOMContentLoaded', () => {
-        updateAuthButton();
-    });
 
-    // Handle login/logout button click
-    function handleAuth() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+<script src="script.js"></script>
 
-        if (isLoggedIn) {
-            // Ask for confirmation before logging out
-            const confirmLogout = confirm('Are you sure you want to logout?');
-            if (confirmLogout) {
-                localStorage.setItem('isLoggedIn', 'false');
-                updateAuthButton(); // Just update the button text, no redirection
-                window.location.href = 'index.html'
-            }
-        } else {
-            // If logged out, redirect to login page
-            window.location.href = 'index.html';
-        }
-    }
-
-    // Update button text based on login state
-    function updateAuthButton() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        const authButton = document.getElementById('authButton');
-        authButton.textContent = isLoggedIn ? 'Logout' : 'Login';
-    }
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

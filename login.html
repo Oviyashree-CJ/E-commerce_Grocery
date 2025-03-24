@@ -84,7 +84,7 @@
         const password = document.getElementById('password').value.trim();
         const errorMessage = document.getElementById('errorMessage');
 
-        let mob = "";
+        localStorage.setItem("username", username);
 
         // Validate username (allow full characters and special characters)
         if (!/^[a-zA-Z0-9@_.-]+$/.test(username)) {
@@ -110,8 +110,10 @@
         }
 
         // If all validations pass:
-        localStorage.setItem('isLoggedIn', 'true');
-        window.location.href = 'index.html';
+        if (username) {
+        localStorage.setItem("username", username);
+        window.location.href = "index.html"; // Redirect after storing the username
+    }
     });
 </script>
 
